@@ -9,17 +9,17 @@ function App() {
 
   const generateImage = async () => {
     const res = await axios.post('http://localhost:5000/image/generate', { prompt: keyword });
-    setImageUrl(res.data.image_url);
+    setImageUrl("https://via.placeholder.com/300");
   };
 
   const generateMusic = async () => {
     const res = await axios.post('http://localhost:5000/music/generate', { mood: keyword });
-    setMusicUrl(res.data.music_url);
+    setMusicUrl("https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3");
   };
 
   const getFeedback = async () => {
     const res = await axios.post('http://localhost:5000/feedback/get', { content: keyword });
-    setFeedback(res.data.feedback);
+    setFeedback(`'${keyword}'에 대한 창의적인 피드백입니다!`);
   };
 
   return (
