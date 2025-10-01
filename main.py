@@ -1,6 +1,10 @@
-from app import create_app
+from flask import Flask
+from flask_cors import CORS
+from app.routes.image import image_bp
 
-app = create_app()
+def create_app():
+    app = Flask(__name__)
+    CORS(app)
 
-if __name__ == "__main__":
-    app.run(debug=True)
+    app.register_blueprint(image_bp, url_prefix="/image")  # ✅ 이 줄이 중요!
+    return app
