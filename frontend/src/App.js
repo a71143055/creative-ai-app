@@ -7,15 +7,13 @@ function App() {
 
   // ✅ 여기에 넣으세요!
   const generateImage = async () => {
-    try {
-      const res = await axios.post('http://localhost:5000/image/generate', {
-        prompt: keyword,
-      });
-      setImageUrl(`http://localhost:5000${res.data.image_url}`);
-    } catch (error) {
-      console.error('이미지 생성 중 오류 발생:', error);
-    }
-  };
+  const res = await axios.post('http://localhost:5000/image/generate', {
+    prompt: keyword,
+  });
+
+  // 여기서 res.data.image_url를 받아서 화면에 표시
+  setImageUrl(`http://localhost:5000${res.data.image_url}`);
+};
 
   return (
     <div>
