@@ -1,0 +1,25 @@
+# Node.js (React)
+node_modules/
+build/
+.env
+.DS_Store
+
+# Python (Flask)
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+env/
+venv/
+instance/
+.env
+
+# VSCode
+.vscode/
+
+# macOS
+*.DS_Store
+
+# Windows
+Thumbs.db
+ehthumbs.db
