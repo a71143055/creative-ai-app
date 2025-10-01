@@ -8,11 +8,17 @@ function App() {
   const [feedback, setFeedback] = useState('');
 
   const generateImage = async () => {
+  console.log('요청 시작');
+  try {
     const res = await axios.post('http://127.0.0.1:5000/image/generate', {
       prompt: keyword,
     });
+    console.log('응답:', res.data);
     setImageUrl(`http://127.0.0.1:5000${res.data.image_url}`);
-  };
+  } catch (error) {
+    console.error('에러 발생:', error);
+  }
+};
 
   const generateMusic = async () => {
     const res = await axios.post('http://127.0.0.1:5000/music/generate', {
